@@ -1,15 +1,13 @@
-const title = document.querySelector("#title");
-const CLASS = "clicked";
-function handleclick() {
-  const c__cname = title.className;
-  if (c__cname !== CLASS) {
-    c__cname = CLASS;
-  } else {
-    c__cname = "";
-  }
+const clockContainer = document.querySelector(".js-clock"),
+  clockTitle = clockContainer.querySelector("h1");
+
+function getTime() {
+  const date = new Date();
+  const minutes = date.getMinutes();
+  const hours = date.getHours();
+
+  clockTitle.innerText = `${hours}:${minutes}`;
 }
 
-function init() {
-  title.addEventListener("click", handleclick);
-}
+function init() {}
 init();
