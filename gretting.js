@@ -1,24 +1,36 @@
-const form = document.querySelector(".js_form"),
+const form = document.querySelector(".js-form"),
   input = form.querySelector("input"),
-  greetings = document.querySelector(".js_greetings");
+  greeting = document.querySelector(".js-greetings");
 
 const USER_LS = "currentUser",
   SHOWING_CN = "showing";
 
-function paintGreetings(text) {
+function handleSubmit() {
+  event.preventDefault();
+}
+
+function takeUserName() {
+  form.classList.add(SHOWING_CN);
+  form.addEventListener("submit", handleSubmit);
+}
+
+function paintGreeting(text) {
   form.classList.remove(SHOWING_CN);
-  greetings.classList.add(SHOWING_CN);
-  greetings.innerHTML = `hello! ${text}`;
+  greeting.classList.add(SHOWING_CN);
+  greeting.innerText = `Hello ${text}`;
 }
 
 function loadName() {
-  const currentUser = localStorage.getItem("USER_LS");
+  const currentUser = localStorage.getItem(USER_LS);
   if (currentUser === null) {
+    takeUserName();
   } else {
-    paintGreetings(currentUser);
+    paintGreeting(currentUser);
   }
 }
 
-function init() {}
+function init() {
+  loadName();
+}
 
 init();
