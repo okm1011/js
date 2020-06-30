@@ -1,8 +1,21 @@
-.form,
-.greetings {
+.form {
   display: none;
+  margin-left: 42%;
 }
 
 .showing {
   display: block;
+}
+.js-clock,
+.js-greetings,
+.js-toDoForm {
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.js-toDoList {
+  display: block;
+  padding-left: 50%;
+  font-size: larger;
 }
